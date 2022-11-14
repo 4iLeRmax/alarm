@@ -39,5 +39,7 @@ hourLine.ontouchmove = (e)=>{
     hourLine.style.top = -(Math.round(yDiff/10) * 65) + 'px';
   }
 }
-let date = new Date;
-console.log(date);
+let hours = document.querySelectorAll('.col.hour div');
+console.log(hours)
+// let date = new Date;
+// console.log(date);

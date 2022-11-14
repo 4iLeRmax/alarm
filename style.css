@@ -110,12 +110,17 @@
   align-items: center;
   gap: 20px;
   position: absolute;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
-.hour{}
-.minutes{}
+.hour{
+  top: 0;
+  transition: top .25s;
+}
+.minutes{
+  top: 0;
+  transition: top .25s;
+}
 .col div{
   display: flex;
   align-items: center;
