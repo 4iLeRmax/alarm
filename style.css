@@ -1,0 +1,143 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.wrapper{
+  background: #000;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+  position: relative;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  color: #777;
+  padding: 20px;
+  border-radius: 20px;
+  height: 92px;
+  overflow: hidden;
+  transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+.card.active{
+  height: 392px;
+  /* height: 100%; */
+  background: #222;
+}
+.card:hover{
+  /* background: #222; */
+}
+.card__header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* background: red; */
+}
+.card__time{}
+.time{
+  font-size: 30px;
+}
+.cycle{
+  font-size: 15px;
+}
+.switcher{
+  width: 45px;
+  height: 22px;
+  border-radius: 20px;
+  background: #555;
+  position: relative;
+  transition: all .15s;
+}
+.switcher__toggle{
+  background: rgb(190, 190, 190);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  transition: all .25s;
+}
+.switcher.active{
+  background: rgb(38, 104, 245);
+}
+.switcher.active .switcher__toggle{
+  background: #fff;
+  left: 90%;
+  transform: translate(-90%, -50%);
+}
+
+.card__main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  margin: 40px 0;
+  position: relative;
+}
+.line{
+  position: absolute;
+  width: 1px;
+  height: 250px;
+  /* background: red; */
+  background: linear-gradient(rgba(0,0,0,0), #333, rgba(0,0,0,0));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.col__block{
+  position: relative;
+  width: 105px;
+  height: 175px;
+  overflow: hidden;
+}
+.col{
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hour{}
+.minutes{}
+.col div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+
+
+.card__btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+.btn{
+  width: 100%;
+  padding: 12px 0;
+  background: #333;
+  border: 0;
+  border-radius: 20px;
+  color: #fff;
+  box-sizing: 10px 10px 30px rgba(0,0,0,0.1);
+}
