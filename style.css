@@ -44,6 +44,8 @@
 .card__time{}
 .time{
   font-size: 30px;
+  display: flex;
+  align-items: center;
 }
 .cycle{
   font-size: 15px;
@@ -127,6 +129,7 @@
   justify-content: center;
   width: 45px;
   height: 45px;
+  transition: color .15s;
 }
 
 
