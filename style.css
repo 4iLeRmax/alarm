@@ -3,13 +3,49 @@
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  /* transition: all .15s; */
+}
+.dark{
+  --bg: #000;
+  --bg2: #222;
+  --switcherBg: #555;
+  --toggle: rgb(190, 190, 190);
+  --textColor: #777;
+  --blue: rgb(38, 104, 245);
+  --white: #fff;
+  --btnBg: #333;
+  --btnColor: #fff;
+}
+.light{
+  --bg: #fff;
+  --bg2: #fff;
+  --switcherBg: rgb(190, 190, 190);
+  --toggle: #fff;
+  --textColor: #888;
+  --blue: rgb(38, 104, 245);
+
+
+  --white: #fff;
+  --btnBg: rgb(190, 190, 190);
+  --btnColor: #333;
 }
 .wrapper{
-  background: #000;
+  background: var(--bg);
   width: 100%;
   height: 100vh;
-  padding: 10px;
+  /* padding: 10px; */
   position: relative;
+}
+.black{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  display: none;
+  transition: all .15s;
+}
+.black.active{
+  display: block;
 }
 .card{
   display: flex;
@@ -17,18 +53,28 @@
   align-items: center;
 
   width: 100%;
-  color: #777;
+  color: var(--textColor);
   padding: 20px;
   border-radius: 20px;
   height: 92px;
   overflow: hidden;
   transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  position: relative;
+  /* position: relative; */
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin-top: 50px; */
 }
 .card.active{
   height: 392px;
   /* height: 100%; */
-  background: #222;
+  background: var(--bg2);
+  /* box-shadow: 10px 10px 10px 30px rgba(0,0,0,0.1); */
+}
+body.light .black{
+  background: rgba(0,0,0,0.4);
 }
 .card:hover{
   /* background: #222; */
@@ -54,12 +100,14 @@
   width: 45px;
   height: 22px;
   border-radius: 20px;
-  background: #555;
-  position: relative;
+  background: var(--switcherBg);
+  position: absolute;
+  top: 35px;
+  right: 20px;
   transition: all .15s;
 }
 .switcher__toggle{
-  background: rgb(190, 190, 190);
+  background: var(--toggle);
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -70,10 +118,10 @@
   transition: all .25s;
 }
 .switcher.active{
-  background: rgb(38, 104, 245);
+  background: var(--blue);
 }
 .switcher.active .switcher__toggle{
-  background: #fff;
+  background: var(--white);
   left: 90%;
   transform: translate(-90%, -50%);
 }
@@ -94,7 +142,7 @@
   width: 1px;
   height: 250px;
   /* background: red; */
-  background: linear-gradient(rgba(0,0,0,0), #333, rgba(0,0,0,0));
+  background: linear-gradient(rgba(0,0,0,0), var(--btnBg), rgba(0,0,0,0));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -143,9 +191,56 @@
 .btn{
   width: 100%;
   padding: 12px 0;
-  background: #333;
+  background: var(--btnBg);
   border: 0;
   border-radius: 20px;
-  color: #fff;
-  box-sizing: 10px 10px 30px rgba(0,0,0,0.1);
+  color: var(--btnColor);
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+.switcher__block{
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; */
+  position: absolute;
+  z-index: 2;
+  top: 90%;
+  transform: translateY(-90%);
+  left: calc(100% - 45px);
+  /* width: 100%; */
+}
+.styleSwitcher{
+  width: 45px;
+  height: 22px;
+  border-radius: 20px;
+  background: var(--switcherBg);
+  position: relative;
+  top: 35px;
+  right: 20px;
+  transition: all .15s;
+}
+.styleToggle{
+  background: var(--toggle);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  transition: all .25s;
+}
+.styleSwitcher.active{
+  background: var(--blue);
+}
+.styleSwitcher.active .styleToggle{
+  background: var(--white);
+  left: 90%;
+  transform: translate(-90%, -50%);
 }
