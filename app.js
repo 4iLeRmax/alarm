@@ -73,6 +73,7 @@ let timeH = document.querySelector('.time .timeHour');
 let timeM = document.querySelector('.time .timeMinutes');
 let time;
 let cycle = document.querySelector('.cycle');
+let different;
 
 
 
@@ -133,8 +134,6 @@ hourLine.ontouchmove = (e)=>{
     }
   }
 }
-
-
 
 minutesLine.ontouchstart = (e)=>{
   y1 = e.touches[0].clientY;
@@ -209,7 +208,7 @@ function timeConverter(item){
 }
 function timeDiff(firstDate, secondDate){
   let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
-  let different = (getDate(secondDate) - getDate(firstDate));
+  different = (getDate(secondDate) - getDate(firstDate));
   let hour;
   let minute;
   if(different>0){
@@ -220,8 +219,12 @@ function timeDiff(firstDate, secondDate){
     hour = 24 - (-Number(Math.floor((different % 86400000) / 3600000)));
     minute = 60 - (-Number(Math.round(((different % 86400000) % 3600000) / 60000)));
   }
+  else if(different==0){
+    hour = 0;
+    minute = 0;
+  }
 
-
+  
   let result = `${hour} ч ${minute} мин`;
   if(minute=="00"){
     result = `${hour} ч`;
@@ -236,7 +239,6 @@ function addDiffTime(){
   // console.log(secondDate);
 
   cycle.innerHTML=`Через ${timeDiff(firstDate, secondDate)}`;
-  
 }
 btn.onclick = ()=>{
   if(card.classList.contains('active')){
@@ -249,6 +251,43 @@ btn.onclick = ()=>{
     black.classList.remove('active');
   }
   addDiffTime();
+  sound();
+}
+
+
+
+
+function func1(signal){
+  let audio = document.createElement('audio');
+  audio.setAttribute("autoplay","true");
+  audio.innerHTML = `<source src="${signal}.mp3" type="audio/mpeg">`;
+  audio.volume = 0.05;
+  document.body.appendChild(audio);
+  // console.log('true');
+} 
+
+const obj = {
+func1: "func1"
+}
+
+localStorage.setItem('fn', JSON.stringify(obj));
+const newObj = JSON.parse(localStorage.getItem('fn'));
+let b = newObj.func1;
+// console.log(b);
+
+// function diff(){
+//   let firstDate = timeConverter(new Date);
+//   let secondDate = `${timeH.textContent}:${timeM.textContent}`;
+
+//   let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
+//   different = (getDate(secondDate) - getDate(firstDate));
+//   return different;
+// }
+function sound(){
+  window.setTimeout(()=>{
+    b = eval(b+'("1")');
+  },different);
+  console.log(different);
 }
 
 }

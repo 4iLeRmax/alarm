@@ -52,7 +52,7 @@
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
+  width: 300px;
   color: var(--textColor);
   padding: 20px;
   border-radius: 20px;
@@ -113,8 +113,8 @@ body.light .black{
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  left: 10%;
-  transform: translate(-10%, -50%);
+  left: 18%;
+  transform: translate(-18%, -50%);
   transition: all .25s;
 }
 .switcher.active{
@@ -122,8 +122,8 @@ body.light .black{
 }
 .switcher.active .switcher__toggle{
   background: var(--white);
-  left: 90%;
-  transform: translate(-90%, -50%);
+  left: 82%;
+  transform: translate(-82%, -50%);
 }
 
 .card__main{
@@ -232,8 +232,8 @@ body.light .black{
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  left: 10%;
-  transform: translate(-10%, -50%);
+  left: 18%;
+  transform: translate(-18%, -50%);
   transition: all .25s;
 }
 .styleSwitcher.active{
@@ -241,6 +241,6 @@ body.light .black{
 }
 .styleSwitcher.active .styleToggle{
   background: var(--white);
-  left: 90%;
-  transform: translate(-90%, -50%);
+  left: 82%;
+  transform: translate(-82%, -50%);
 }
